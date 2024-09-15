@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display URL Parameters</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .parameter {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Book Details</h1>
+    <div id="output"></div>
+
+    <script>
+        // Function to get URL parameters and display them
+        function displayParameters() {
+            // Get the URL parameters
+            const params = new URLSearchParams(window.location.search);
+            
+            // Prepare an object to hold parameter values
+            const data = {
+                title: params.get('title'),
+                author: params.get('author'),
+                desc: params.get('desc'),
+                shelf: params.get('shelf'),
+                genre: params.get('genre')
+            };
+
+            // Get the output container
+            const outputDiv = document.getElementById('output');
+
+            // Build the output HTML
+            let outputHTML = '';
+            for (const key in data) {
+                if (data[key]) { // If the parameter exists, display it
+                    outputHTML += `<div class="parameter"><strong>${key}:</strong> ${data[key]}</div>`;
+                }
+            }
+
+            // Set the output HTML to the container
+            outputDiv.innerHTML = outputHTML;
+        }
+
+        // Call the function to display parameters on page load
+        displayParameters();
+    </script>
+</body>
+</html>
