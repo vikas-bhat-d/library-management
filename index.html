@@ -4,52 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Display URL Parameters</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .parameter {
-            margin-bottom: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="./style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <h1>Book Details</h1>
-    <div id="output"></div>
+    <main>
+        <div class="book-details">
+            <h3>Book Details: </h3>
+            <div id="title">Title: </div>
+            <div id="author">Author: </div>
+            <div id="description">description:</div>
+            <div id="genre">genre:</div>
+            <div id="shelf">shelf_no:</div>
+        </div>
+        <div class="check-wiki">
+           <a href="" class="wiki-button" target="_blank"><button> <p>WikiPedia</p> <i class='bx bx-right-arrow-alt'></i></button> </a> 
+        </div>
+        <div class="borrow">
+            <button onclick="borrow(data)"><p>Borrow-This-Book</p> <i class='bx bx-right-arrow-alt'></i></button>
+            <p class="response"></p>
+        </div>
+        <div class="image">
+            <div class="shelf">Shelf- </div>
+            <div class="icon"> 
+                <i class='bx bxs-map-pin map-pin'></i> 
+            </div>
+            <img src="./Library-Layout-Future-2D.png" alt="">
+        </div>
+    </main>
 
-    <script>
-        // Function to get URL parameters and display them
-        function displayParameters() {
-            // Get the URL parameters
-            const params = new URLSearchParams(window.location.search);
-            
-            // Prepare an object to hold parameter values
-            const data = {
-                title: params.get('title'),
-                author: params.get('author'),
-                desc: params.get('desc'),
-                shelf: params.get('shelf'),
-                genre: params.get('genre')
-            };
-
-            // Get the output container
-            const outputDiv = document.getElementById('output');
-
-            // Build the output HTML
-            let outputHTML = '';
-            for (const key in data) {
-                if (data[key]) { // If the parameter exists, display it
-                    outputHTML += `<div class="parameter"><strong>${key}:</strong> ${data[key]}</div>`;
-                }
-            }
-
-            // Set the output HTML to the container
-            outputDiv.innerHTML = outputHTML;
-        }
-
-        // Call the function to display parameters on page load
-        displayParameters();
-    </script>
+    <script src="./script.js"></script>
 </body>
 </html>
