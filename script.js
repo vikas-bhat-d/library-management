@@ -79,7 +79,7 @@ function showMap(data)
 function borrow(data)
 {
     document.querySelector(".response").setAttribute('style','visibility:visible')
-    if(data.borrowed)
+    if(data.borrowed=="true")
     {
         
         document.querySelector(".response").innerHTML="This book is already borrowed:(..<br>please wait for few days"
